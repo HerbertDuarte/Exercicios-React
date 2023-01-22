@@ -1,0 +1,1 @@
+permite que eu crie componentes dinamicos, podendo reaproveitar componentes para gerar elementos semelhantes porém com conteúdo e valores diferentes.

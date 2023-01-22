@@ -1,0 +1,10 @@
+npx create-react-app NOME DA APLICAÇÃO
+
+ou usando o VITE para criar arquivos .jsx ou .tsx se usar TypeScript
+com o comando : 
+
+npm create vite@latest
+
+---------------------------------------------
+
+npm start para abrir o projeto num run server 
