@@ -18,11 +18,12 @@ body,html{
 button{
   padding: 7px 20px;
   font-size: 1.5em;
-  border:3px solid black;
+  border:2px solid rgb(255, 255, 255);
   border-radius: 25px;
   background-color: rgb(0, 0, 255);
   color: white;
   cursor: pointer;
+  margin: 5px; 
 }
 
 button:hover{
@@ -31,4 +32,5 @@ button:hover{
 
 h1{
   font-size: 3em;
+  margin: 5px;
 }

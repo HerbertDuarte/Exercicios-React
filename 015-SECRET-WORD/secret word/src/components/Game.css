@@ -1,0 +1,52 @@
+.gamescreen p{
+  color: yellow;
+  margin: 10px;
+}
+
+.word{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 20px;
+}
+
+.letter{
+  border: 4px solid rgb(255, 207, 50);
+  outline: 3px solid rgb(255, 255, 255);
+  font-size: 3.5em;
+  width: 1.2em;
+  margin: 0 3px;
+  padding: 5px 0;
+  text-transform: uppercase;
+  border-radius: 3px;
+  /* color: transparent; */
+}
+.blanksquare{
+  color: transparent; 
+}
+#letter{
+  max-width: 50px;
+  padding: 5px 0;
+  border-radius: 20%;
+  font-size: 1.8em;
+  text-align: center;
+  border: 1px solid rgb(255, 255, 255);
+  background-color: blue;
+  color: white;
+  text-transform: uppercase;
+}
+form{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.category{
+  text-transform: uppercase;
+  color: yellow;
+}
