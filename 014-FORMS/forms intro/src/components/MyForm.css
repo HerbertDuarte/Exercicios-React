@@ -1,0 +1,10 @@
+input, textarea, select{
+  display: block;
+  margin: 5px;
+}
+
+label:nth-child(1){
+  display: block;
+  text-align: start;
+  margin: 0 5px;
+}
