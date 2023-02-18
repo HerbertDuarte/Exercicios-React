@@ -3,10 +3,12 @@ import './Game.css'
 const Game = ({word, category}) => {
   return (
     <div className='gamescreen'>
-      <h1 className='adv'>Adivinhe a palavra:</h1>
+      <h1 className='adv'>Secret Word</h1>
       <h2 className='tip'>Dica : <span className="category">{category}</span></h2>
 
       <div className='container'>
+
+        <h4 className='instruction'>Tente adivinhar uma letra da palavra:</h4>
 
         <div className='word'>
           {word.map((w, i) => <div key={i} className='letter'>{w}</div>)}
