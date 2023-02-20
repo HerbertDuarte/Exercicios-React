@@ -16,6 +16,8 @@ function App() {
   const [pickedword, setPickedword] = useState('')
   const [pickedcategory, setpickedcategory] = useState('')
   const [letters, setLetters] = useState('')
+  
+  
 
   // NAVIGATION FUNCTIONS
   const startGame = () => {
@@ -26,7 +28,7 @@ function App() {
     setLetters(wordLetters)
     setStage('game')
   }
-  const verifyLetter = () => setStage('end')
+  
   const retry = () => setStage('start')
 
   const pickWordAndCategoy = () =>{
@@ -40,7 +42,11 @@ function App() {
     
     <div className="App">
       {stage == 'start' && <Start click={startGame}/>}
-      {stage == 'game' && <Game word={letters} category={pickedcategory}/>}
+      {stage == 'game' && (
+      <Game  
+      word={letters} 
+      category={pickedcategory} />
+      )}
       {stage == 'end' && <End click={retry}/>}
     </div>
   )

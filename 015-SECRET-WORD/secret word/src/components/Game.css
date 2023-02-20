@@ -10,19 +10,21 @@
   justify-content: center;
   gap: 5px;
   margin: 20px;
+  border: 10px solid yellow;
+  padding: 10px;
 }
 
 .letter{
-  border: 4px solid rgb(255, 207, 50);
-  outline: 3px solid rgb(255, 255, 255);
+  background-color: white;
   font-size: 3.5em;
   width: 1.2em;
   margin: 0 3px;
   padding: 5px 0;
   text-transform: uppercase;
   border-radius: 3px;
+  color: black;
 }
-.blanksquare{
+.blankLetter{
   color: transparent; 
 }
 
@@ -55,4 +57,16 @@ form{
 .category{
   text-transform: uppercase;
   color: yellow;
+}
+
+.wrongLetters{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.wl{
+  text-transform: uppercase;
 }
