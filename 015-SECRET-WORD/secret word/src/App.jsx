@@ -45,9 +45,10 @@ function App() {
       {stage == 'game' && (
       <Game  
       word={letters} 
-      category={pickedcategory} />
+      category={pickedcategory}
+      setStage={setStage} />
       )}
-      {stage == 'end' && <End click={retry}/>}
+      {stage == 'end' && <End click={startGame}/>}
     </div>
   )
 }
