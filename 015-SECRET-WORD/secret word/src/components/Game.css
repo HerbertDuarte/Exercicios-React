@@ -30,8 +30,9 @@
 
 .instruction{
   margin-bottom: -5px;
-  margin-top: 30px;
-  font-size: 1.5em;
+  margin-top: 10px;
+  font-size: 1.2em;
+  font-weight: normal;
 }
 
 #letter{
@@ -69,4 +70,12 @@ form{
 
 .wl{
   text-transform: uppercase;
+}
+
+#score{
+  color:white;
+}
+.score span{
+  color: yellow;
+  font-weight: bold;
 }

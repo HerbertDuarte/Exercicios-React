@@ -1,19 +1,41 @@
 import './Game.css'
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
-const Game = ({word, category}) => {
+const Game = ({word, category, setStage, wrongLetters, setWrongLetters, hits, setHits, guesses, setGuesses, chances, setChances, startGame}) => {
 
   const [letter, setLetter] = useState('')
   const letterInputRef = useRef(null)
   const [storageLetter, setStorageLetter] = useState([])
-  const [wrongLetters, setWrongLetters] = useState([])
-  const [hits, setHits] = useState([])
   
   const handleSubmit = (e) =>{
     e.preventDefault()
-    // setWrongLetters(storageLetter.filter(letter => !word.includes(letter)))
     
   }
+
+  useEffect(()=>{
+    if(chances == 1 ){
+      alert('Ultima chance, se você errar o jogo acaba!')
+    }
+
+    else if (chances <= 0){
+      let simpleWord = word.join('')
+      simpleWord = simpleWord.toString().toUpperCase()
+      alert('Fim de jogo!\nA palavra era : ' + simpleWord)
+      setStage('end')
+    }
+  }, [wrongLetters])
+
+  useEffect(()=>{
+
+    const uniqueLetters = [...new Set(word)]
+  
+    // win condition
+
+    if(hits.length === uniqueLetters.length){
+      startGame()
+    }
+
+  }, [hits])
 
   const verifyLetter = (letter) =>{
 
@@ -22,31 +44,33 @@ const Game = ({word, category}) => {
       setLetter('')
       letterInputRef.current.focus()
         return;
-    }else{
+    }
+    else if(letter == '' || letter == ' '){
+      alert('Digite alguma letra!')
+      setLetter('')
+      letterInputRef.current.focus()
+      return;
+    }
+    else{
       if(word.includes(letter)){
         setHits([
           ...hits,
         letter
         ])
+        setGuesses(guesses + 100)
       }else{
         setWrongLetters([
           ...wrongLetters,
           letter
         ])
+        setChances(chances - 1)
+        
       }
     }
-    
-    // setStorageLetter([
-    //   ...storageLetter,
-    //   letter
-    // ])
-
     setLetter('')
     letterInputRef.current.focus()
   }
 
-  console.log('wrong letters : ' + wrongLetters)
-  console.log('hits : ' + hits)
   return (
     <div className='gamescreen'>
       <h1 className='adv'>Secret Word</h1>
@@ -71,6 +95,8 @@ const Game = ({word, category}) => {
           })}
         </div>
 
+        <p id='score' className='score'>Pontuação: <span>{guesses}</span></p>
+
         <form onSubmit={(e)=> handleSubmit(e)}>
           <input 
           maxLength={1} 
@@ -91,10 +117,6 @@ const Game = ({word, category}) => {
           ))}
         </div>
       </div>
-
-      <p className='points'>
-        Pontuação: 000
-      </p>
 
     </div>
   )

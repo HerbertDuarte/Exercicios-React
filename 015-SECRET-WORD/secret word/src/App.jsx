@@ -16,13 +16,23 @@ function App() {
   const [pickedword, setPickedword] = useState('')
   const [pickedcategory, setpickedcategory] = useState('')
   const [letters, setLetters] = useState('')
-  
-  
+  let [wrongLetters, setWrongLetters] = useState([])
+  const [hits, setHits] = useState([])
+  const [chances, setChances] = useState(5)
+  const [guesses, setGuesses] = useState(-1000)
 
   // NAVIGATION FUNCTIONS
   const startGame = () => {
     const [word, category] = pickWordAndCategoy()
     const wordLetters = word.toLowerCase().split('')
+    setHits([])
+    setWrongLetters([])
+    if(chances == 0){
+      setGuesses(0)
+    }else{
+      setGuesses(guesses + 1000)
+    }
+    setChances(5)
     setPickedword(word)
     setpickedcategory(category)
     setLetters(wordLetters)
@@ -45,9 +55,23 @@ function App() {
       {stage == 'game' && (
       <Game  
       word={letters} 
-      category={pickedcategory} />
+      category={pickedcategory}
+      setStage={setStage}
+      hits={hits}
+      setHits={setHits}
+      chances ={chances}
+      setChances={setChances}
+      guesses= {guesses}
+      setGuesses = {setGuesses}
+      wrongLetters={wrongLetters}
+      setWrongLetters={setWrongLetters}
+      startGame={startGame}
+       />
       )}
-      {stage == 'end' && <End click={retry}/>}
+      {stage == 'end' && <End 
+      click={retry}
+      guesses = {guesses}
+      />}
     </div>
   )
 }
