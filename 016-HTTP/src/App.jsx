@@ -1,52 +1,62 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { useFetch } from "../hooks/useFetch";
 
 function App() {
   const url = "http://localhost:3000/products";
-
-  const [products, setProducts] = useState([]);
+  
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+
+  // 4 - custom hook
+  
+  const { data : products } = useFetch(url)
+  
+  // 1 - fecth dos dadosda API
+
+  // useEffect(() => {
+  //   async function fetchApi() {
+  //     const res = await fetch(url);  
+  //     const data = await res.json();
+
+  //     setProducts(data);
+  //   }
+  //   fetchApi();
+  // }, []);
+
+  // 2 - adicionando produtos à API 
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     const newProduct = {
       name,
       price
-    }
+    }  
     console.log(newProduct)
     console.log(products)
 
-    await fetch( url, {
+    const response = await fetch( url, {
       method: 'POST',
       headers:{
         'Content-Type' : 'application/json'
-      },
+      },  
       body: JSON.stringify(newProduct)
-    })
+    })  
 
-  };
+    // 3 - carregamento dinâmico
 
-  // 1 - fecth dos dadosda API
+    const addedProduct = await response.json()
 
-  useEffect(() => {
-    async function fetchApi() {
-      const res = await fetch(url);
-      const data = await res.json();
+    setProducts(previewState => [...previewState, newProduct])
+    setName('') 
+    setPrice('')
+  };  
 
-      setProducts(data);
-    }
-    fetchApi();
-  }, []);
-
-  // 2 - Add products
-
-  console.log(products);
 
   return (
     <div className="App">
       <h1>Produtos</h1>
-      {products.map((product) => (
+      {products && products.map((product) => (
         <p key={product.id}>
           Produto : {product.name} - preço : R${" "}
           {product.price.toLocaleString("pt-br", { minimumFractionDigits: 2 })}
