@@ -4,19 +4,20 @@ import { useFetch } from "../hooks/useFetch";
 
 function App() {
   const url = "http://localhost:3000/products";
-  
+
   const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
+  const [price, setPrice] = useState();
+  const [img, setImg] = useState("");
 
   // 4 - custom hook
-  
-  const { data : products } = useFetch(url)
-  
+
+  const { data: products, httpConfig } = useFetch(url);
+
   // 1 - fecth dos dadosda API
 
   // useEffect(() => {
   //   async function fetchApi() {
-  //     const res = await fetch(url);  
+  //     const res = await fetch(url);
   //     const data = await res.json();
 
   //     setProducts(data);
@@ -24,67 +25,91 @@ function App() {
   //   fetchApi();
   // }, []);
 
-  // 2 - adicionando produtos à API 
+  // 2 - adicionando produtos à API
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newProduct = {
       name,
-      price
-    }  
-    console.log(newProduct)
-    console.log(products)
+      price : Number(price),
+      img,
+    };
+    console.log(newProduct);
+    console.log(products);
 
-    const response = await fetch( url, {
-      method: 'POST',
-      headers:{
-        'Content-Type' : 'application/json'
-      },  
-      body: JSON.stringify(newProduct)
-    })  
+    // const response = await fetch( url, {
+    //   method: 'POST',
+    //   headers:{
+    //     'Content-Type' : 'application/json'
+    //   },
+    //   body: JSON.stringify(newProduct)
+    // })
 
-    // 3 - carregamento dinâmico
+    // // 3 - carregamento dinâmico
 
-    const addedProduct = await response.json()
+    // const addedProduct = await response.json()
 
-    setProducts(previewState => [...previewState, newProduct])
-    setName('') 
-    setPrice('')
-  };  
+    // POST com o hook
 
+    httpConfig(newProduct, "POST");
+
+    setName("");
+    setPrice("");
+    setImg("");
+  };
 
   return (
     <div className="App">
-      <h1>Produtos</h1>
-      {products && products.map((product) => (
-        <p key={product.id}>
-          Produto : {product.name} - preço : R${" "}
-          {product.price.toLocaleString("pt-br", { minimumFractionDigits: 2 })}
-        </p>
-      ))}
+      <h1 className="title">⚡Fast Store</h1>
+      <h2 className="sutitle">Produtos</h2>
+      <div className="products">
+        {products &&
+          products.map((product) => (
+            <div key={product.id} className="product">
+              <p className="description">{product.name}</p>
+
+              <div className="image">
+                <img src={product.img} alt={product.name} srcSet={product.img} />
+              </div>
+
+              <span className="price">
+                R${" "}
+                {product.price.toLocaleString("pt-br", {
+                  minimumFractionDigits: 2,
+                })}
+              </span>
+            </div>
+          ))}
+      </div>
 
       <form onSubmit={handleSubmit}>
-        <label>
-          Nome do Produto
-          <input
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            name="name"
-            id="name"
-            value={name}
-          />
-        </label>
+        <input
+          placeholder="Digite o nome do Produto"
+          onChange={(e) => setName(e.target.value)}
+          type="text"
+          name="name"
+          id="name"
+          value={name}
+        />
 
-        <label>
-          Preço
-          <input
-            onChange={(e)=> setPrice(Number(e.target.value))}
-            type="number"
-            name="price"
-            id="price"
-            value={price}
-          />
-        </label>
+        <input
+          placeholder="Digite o preço"
+          type="number"
+          step={0.01}
+          name="price"
+          id="price"
+          value={price}
+          onChange={(e) => setPrice((e.target.value))}
+        />
+
+        <input
+          type="text"
+          name="img"
+          id="img"
+          placeholder="url"
+          value={img}
+          onChange={(e) => setImg(e.target.value)}
+        />
 
         <input type="submit" value="Add" />
       </form>

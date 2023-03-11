@@ -1,49 +1,28 @@
 {
   "products": [
     {
-      "name": "Camisa",
-      "price": 59.9,
+      "name": "SSD Kingspec 120gb SATA III 2.5",
+      "price": 54.99,
+      "img": "https://ae01.alicdn.com/kf/Ha2483ac8f31d4769b50a07ea32fcb66a6/Ssd-120gb-240gb-480gb-128gb-1tb-ssd-sata-sataiii-256gb-512gb-ssd-hdd-2-5-ssd.jpg_Q90.jpg_.webp",
       "id": 1
     },
     {
-      "name": "Calça vermelha",
-      "price": 90,
+      "name": "Memória ram JAZER 8GB ddr4 3200mhz",
+      "price": 109.99,
+      "img": "https://ae01.alicdn.com/kf/S024d5772711442b6ba5c716df405b1abx/Jazer-ddr4-ram-8gb-3200mhz-desktop-gaming-mem-ria-suporte-placa-m-e-ddr4-mem-ria.jpg_Q90.jpg_.webp",
       "id": 2
     },
     {
-      "name": "Boné aba reta",
-      "price": 29.9,
+      "name": "SSD NVME m.2 Kingspec 128gb ",
+      "price": 89.99,
+      "img": "https://ae01.alicdn.com/kf/H04f2e25102094db48c1608a2ef49eca2f/Kingspec-m-2-ssd-120gb-240gb-512gb-1tb-ssd-2tb-disco-r-gido-m2-pcie-ssd.jpg_Q90.jpg_.webp",
       "id": 3
     },
     {
-      "name": "232",
-      "price": 232,
+      "name": "SSD Kingspec 240gb SATA III 2.5",
+      "price": 84.99,
+      "img": "https://ae01.alicdn.com/kf/Ha2483ac8f31d4769b50a07ea32fcb66a6/Ssd-120gb-240gb-480gb-128gb-1tb-ssd-sata-sataiii-256gb-512gb-ssd-hdd-2-5-ssd.jpg_Q90.jpg_.webp",
       "id": 4
-    },
-    {
-      "name": "232",
-      "price": 232,
-      "id": 5
-    },
-    {
-      "name": "232",
-      "price": 232,
-      "id": 6
-    },
-    {
-      "name": "232",
-      "price": 232,
-      "id": 7
-    },
-    {
-      "name": "232",
-      "price": 232,
-      "id": 8
-    },
-    {
-      "name": "232",
-      "price": 232,
-      "id": 9
     }
   ]
 }
