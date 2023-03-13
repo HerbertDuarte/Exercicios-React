@@ -10,6 +10,14 @@ export const useFetch = (url) => {
   const [method, setMethod] = useState(null);
   const [callFetch, setCallFetch] = useState(false);
 
+  // 6 - criando controle de tela de loading
+
+  const [loading, setLoading] = useState(false)
+
+  // 7 - trabalhando com possibilidade de erro usando TRY CATCH
+
+  const [err, setErr] = useState(false)
+
   const httpConfig = (data, method) => {
     if (method === "POST") {
       setConfig({
@@ -26,18 +34,32 @@ export const useFetch = (url) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(url);
-      const data = await res.json();
 
-      setData(data);
-    };
+    setLoading(true)
+    
+      try {  
+          const res = await fetch(url);
+          const data = await res.json();
+          setData(data);
+          setLoading(false)
+      }
 
-    fetchData();
+     catch (error) {
+      console.log(error)
+      setErr(true)
+    }
+  }
+    fetchData()
+    setLoading(false)
+    
   }, [url, callFetch]);
 
   // POST
 
   useEffect(() => {
+    
+    setLoading(true)
+
     const httpRequest = async () => {
       if (method === "POST") {
         let fetchOptions = [url, config];
@@ -47,10 +69,12 @@ export const useFetch = (url) => {
         const data = await res.json();
 
         setCallFetch(data);
+
+        setLoading(false)
       }
     };
     httpRequest();
   }, [config, url, method]);
 
-  return { data, httpConfig };
+  return { data, httpConfig , loading, err};
 };

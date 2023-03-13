@@ -1,6 +1,8 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
+import Products from "./components/Products";
+import Form from "./components/Form";
 
 function App() {
   const url = "http://localhost:3000/products";
@@ -11,7 +13,7 @@ function App() {
 
   // 4 - custom hook
 
-  const { data: products, httpConfig } = useFetch(url);
+  const { data: products, httpConfig , loading , err } = useFetch(url);
 
   // 1 - fecth dos dadosda API
 
@@ -61,58 +63,21 @@ function App() {
   return (
     <div className="App">
       <h1 className="title">⚡Fast Store</h1>
-      <h2 className="sutitle">Produtos</h2>
-      <div className="products">
-        {products &&
-          products.map((product) => (
-            <div key={product.id} className="product">
-              <p className="description">{product.name}</p>
+      <h2 className="subtitle">Produtos</h2>
+      
+      <Products products={products} loading={loading} err={err}/>
 
-              <div className="image">
-                <img src={product.img} alt={product.name} srcSet={product.img} />
-              </div>
+      <h2 className="subtitle">Novo produto</h2>
 
-              <span className="price">
-                R${" "}
-                {product.price.toLocaleString("pt-br", {
-                  minimumFractionDigits: 2,
-                })}
-              </span>
-            </div>
-          ))}
-      </div>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Digite o nome do Produto"
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-          name="name"
-          id="name"
-          value={name}
-        />
-
-        <input
-          placeholder="Digite o preço"
-          type="number"
-          step={0.01}
-          name="price"
-          id="price"
-          value={price}
-          onChange={(e) => setPrice((e.target.value))}
-        />
-
-        <input
-          type="text"
-          name="img"
-          id="img"
-          placeholder="url"
-          value={img}
-          onChange={(e) => setImg(e.target.value)}
-        />
-
-        <input type="submit" value="Add" />
-      </form>
+      <Form 
+      price = {price}
+      setPrice = {setPrice}
+      name = {name}
+      setName = {setName}
+      img = {img}
+      setImg = {setImg}
+      loading = {loading}
+      func = {handleSubmit}/>
     </div>
   );
 }
