@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import SingleProduct from "./SingleProduct";
 
 const Products = ({ products, loading, err }) => {
 
@@ -16,23 +16,10 @@ const Products = ({ products, loading, err }) => {
           <Loading />
           ) : (
             products &&
-            products.map((product) => (
-              <Link to='/about' key={product.id} className="product">
-                <p className="description">{product.name}</p>
-
-                <div className="image">
-                  <img src={product.img} alt={product.name} srcSet={product.img} />
-                </div>
-
-                <span className="price">
-                  R${" "}
-                  {product.price.toLocaleString("pt-br", {
-                    minimumFractionDigits: 2,
-                  })}
-                </span>
-              </Link>
-           ))
-           )   }
+            products.map((product) => 
+              <SingleProduct product={product} />
+           )
+           )}
     </div>
     </>
   );

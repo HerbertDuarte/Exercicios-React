@@ -123,6 +123,10 @@ a{
   border-radius: 6px;
 }
 
+.singleProduct{
+  width: 100%;
+}
+
 form{
   display: flex;
   flex-direction: column;

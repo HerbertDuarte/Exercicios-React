@@ -25,7 +25,7 @@ function App() {
       element: <Products products={products} httpConfig={httpConfig} loading={loading} err={err} />
     },
     {
-      path:'/about',
+      path:'/about/:id',
       element : <About/>
     }
   ])
