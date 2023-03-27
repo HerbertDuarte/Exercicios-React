@@ -2,9 +2,10 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Products from './components/Products'
+import Products from './routes/Products'
 import About from "./routes/About";
-import Footer from "./components/Footer";
+import Search from "./routes/Search";
+i
 
 
 function App() {
@@ -27,6 +28,10 @@ function App() {
     {
       path:'/about/:id',
       element : <About/>
+    },
+    {
+      path: '/search',
+      element: <Search/>
     }
   ])
 

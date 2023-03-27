@@ -72,9 +72,10 @@ a{
 }
 
 .description{
-  font-size: 1.1em;
+  font-size: 1em;
   margin: 0;
   height: 42px;
+  padding: 3px 0;
 }
 
 .image{
@@ -89,18 +90,40 @@ a{
   height: 100%;
 }
 
-.price{
+.productFooter{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.prices{
+  display: flex;
+  justify-content: end;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 3px;
+  margin: 5px 0;
+}
+
+.price, .oldPrice{
   display: inline-block;
-  background-color: #FFC83D;
-  padding: 8px 12px;
+  
   border-radius: 3px;
-  box-shadow: 1px 1px 10px #0000003b;
-  margin: 10px 0;
+  color:#2e2e2e;
+  font-size: 1.05em;
+  margin: 0;
   cursor: pointer;
 }
 
-.price:hover{
-  opacity: 0.9;
+.oldPrice{
+  text-decoration: line-through;
+  font-style: italic;
+  color: rgb(153, 32, 32);
+  font-size: 0.95em;
+}
+
+.frete{
+  color: rgb(11, 133, 21);
+  padding: 6px;
 }
 
 .products{
@@ -153,7 +176,7 @@ form .area{
   color: rgb(104, 104, 104);
 }
 
-.button{
+/* .button{
   display: inline-block;
   background-color: #FFC83D;
   padding: 8px 12px;
@@ -164,4 +187,4 @@ form .area{
   border: 0;
   outline: 0;
   font-size: 1.1em;
-}
+} */

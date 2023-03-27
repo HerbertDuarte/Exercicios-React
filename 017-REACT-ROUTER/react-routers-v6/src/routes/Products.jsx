@@ -1,12 +1,14 @@
 import React from "react";
-import Loading from "./Loading";
-import SingleProduct from "./SingleProduct";
+import Loading from "../components/Loading";
+import SearchProducts from "../components/SearchProducts";
+import SingleProduct from "../components/SingleProduct";
 
 const Products = ({ products, loading, err }) => {
 
   return (
     <>
     <h2 className="subtitle">Produtos</h2>
+    <SearchProducts/>
     <div className="products">
       
       {err ? (
