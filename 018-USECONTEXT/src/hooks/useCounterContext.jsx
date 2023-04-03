@@ -8,7 +8,7 @@ export const useCounterContext = () =>{
 
   
   if(!context){
-    console.log('Context fail')
+    console.log('Counter Context fail')
   }
 
   return context
