@@ -16,12 +16,12 @@ const SwitchNavLogin = () => {
     const [style, setStyle] = useState(active)
   
   return (
-    <nav>
+    <nav className='switchLogin'>
       <NavLink onClick={()=>{setStyle(active)}} style={{...style }} id='log' to="/login/enter">
         Login
       </NavLink>
       <NavLink onClick={()=>{setStyle(inActive)}} id='sign' to="/login/sign">
-        Sign In
+        Register
       </NavLink>      
     </nav>
   )

@@ -4,12 +4,19 @@ const Navbar = () => {
 
   return (
     <header>
-      <NavLink to='/'>
-        Home
-      </NavLink>
-      <NavLink to='/login'>
-        Enter
-      </NavLink>
+
+      <span translate='no'>
+        Mini<b>Blog</b>
+      </span>
+
+      <nav>
+        <NavLink translate='no' to='/'>
+          Home
+        </NavLink>
+        <NavLink to='/login'>
+          Login
+        </NavLink>
+      </nav>
     </header>
   )
 }
