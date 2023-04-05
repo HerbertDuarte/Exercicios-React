@@ -1,14 +1,14 @@
-import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 
 const Navbar = () => {
+
   return (
     <header>
       <NavLink to='/'>
         Home
       </NavLink>
       <NavLink to='/login'>
-        Login
+        Enter
       </NavLink>
     </header>
   )

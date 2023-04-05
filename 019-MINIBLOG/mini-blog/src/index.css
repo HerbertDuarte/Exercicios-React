@@ -20,12 +20,17 @@ body{
 
 }
 
+#root{
+  width: 100%;
+}
+
 header{
   position: absolute;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 30px;
   height: 60px;
   width: 100%;
   top: 0;
@@ -48,6 +53,77 @@ a, .my_link{
   font-weight: bold;
   text-decoration: none;
   color: #2e2e2e;
+}
+
+nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+  position: absolute;
+  top: 0;
+}
+nav a{
+  background-color: #e0e0e0;
+  color: #2e2e2e;
+  font-size: 1.3em;
+  padding: 10px 15px;
+  border-radius: 15px;
+  white-space: nowrap;
+} 
+
+label{
+  padding-left: 3px;
+}
+
+nav a.active{
+  background-color: #2e2e2e;
+  color: #e0e0e0;
+}
+
+.forms{
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+form{
+  width: 100%;
+  padding: 0 20px;
+}
+
+input{
+  padding: 12px 10px;
+  margin: 0 0 10px 0;
+  border: 0;
+  background-color: #e0e0e0;
+  color: #2e2e2e;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 1em;
+}
+
+button{
+  padding: 10px 20px;
+  border: 0;
+  background-color: #dfae6f;
+  color: #2e2e2e;
+  border-radius: 10px;
+  font-size: 1.1em;
+  margin: 7px;
+
+}
+.btnDiv{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer{
