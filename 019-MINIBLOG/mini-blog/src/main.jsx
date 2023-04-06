@@ -6,7 +6,7 @@ import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import FormSignIn from './components/FormSignIn'
+import FormSignUp from './components/FormSignUp'
 import FormLogin from './components/FormLogin'
 
 const routes = createBrowserRouter([
@@ -28,7 +28,7 @@ const routes = createBrowserRouter([
           },
           {
             path: "/login/sign",
-            element: <FormSignIn/>,
+            element: <FormSignUp/>,
           },
           {
             path: "/login/enter",

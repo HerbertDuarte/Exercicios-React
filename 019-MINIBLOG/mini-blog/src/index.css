@@ -1,3 +1,9 @@
+@keyframes rotate {
+  to{
+    transform: rotate(360deg);
+  }
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -19,6 +25,41 @@ body{
   color: #2e2e2e;
   background-color: #fdfdfd;
 
+}
+/* laoding */
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+
+.circle{
+  border-top: 7px solid #dfae6f;
+  border-bottom: 7px solid #dfae6f;
+  border-left: 7px solid #3b3b3b;
+  border-right: 7px solid #313131;
+  border-radius: 50%;
+  animation: rotate linear infinite .8s;
+
+  height: 50px;
+  width: 50px;
+}
+
+/* error */
+
+.error{
+  display: flex;
+  width:calc(100% - 60px);
+  padding: 10px;
+  background-color: rgba(255, 0, 0, 0.192);
+  margin: 20px auto;
+  border-radius: 7px;
+}
+
+.error p {
+  text-align: center;
+  width: 100%;
 }
 
 #root{
@@ -72,7 +113,7 @@ b{
   gap: 10px;
   padding: 20px 0;
   position: absolute;
-  top: 0;
+  top: 20px;
 }
 .switchLogin a{
   background-color: #e0e0e0;
@@ -87,24 +128,29 @@ label{
   padding-left: 3px;
 }
 
-.switchLogin a.active{
-  background-color: #2e2e2e;
-  color: #e0e0e0;
-}
-
 .forms{
-  height: 60vh;
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
+  padding-top: 60px;
 }
 
 form{
-  width: 100%;
-  padding: 0 20px;
+  width: 100vw;
+  max-width: 700px;
+  padding: 0 30px;
+}
+
+p.text{
+  text-align: center;
+  padding:30px;
+  color: #7c7c7c;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 input{
@@ -148,3 +194,6 @@ footer{
   background-color: #e0e0e0;
 }
 
+@media (max-height: 580px) {
+  .switchLogin{top: 5px;}
+}

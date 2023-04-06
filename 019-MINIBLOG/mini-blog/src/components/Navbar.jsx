@@ -10,11 +10,11 @@ const Navbar = () => {
       </span>
 
       <nav>
-        <NavLink translate='no' to='/'>
+        <NavLink translate='Início' to='/'>
           Home
         </NavLink>
         <NavLink to='/login'>
-          Login
+          Sign In
         </NavLink>
       </nav>
     </header>
